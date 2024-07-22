@@ -18,54 +18,54 @@ function generateNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-
 const forecastBtn = document.querySelector('.forecast-btn');
+const myPredictionContainer = document.querySelector('.forecasts');
+const template = document.querySelector('#forecast-item');
+const namePredictions = document.querySelector('.current-forecast h1');
+const probabilityPredictions = document.querySelector('.current-forecast p');
+
+
+function createSample(name, parcent) {
+    const myPrediction = template.content.cloneNode(true);
+    myPrediction.querySelector('h3').textContent = name;
+    myPrediction.querySelector('p').textContent = parcent;
+
+    return myPrediction;
+}
 
 
 forecastBtn.addEventListener('click', function () {
-    const name = document.querySelector('h1');
-    name.textContent = 'Тебя ждёт прекрасная неделя';
-    let probability = document.querySelector('.current-forecast p');
-    let predictionNumber = generateNumber(0, 100);
-    probability.textContent = `Вероятность : ${predictionNumber} %`;
+    let predictionText = '';
+    const predictionNumber = generateNumber(0, 4);
+    let probability = '';
 
+    if (predictionNumber == 1) {
+        predictionText = "Тебя ждёт прекрасная неделя";
+        probability = `Вероятность : ${generateNumber(0, 100)} %`;
 
-    const myPredictionContainer = document.querySelector('.forecasts');
-    const template = document.querySelector('#forecast-item');
-
-    if (predictionNumber > 50) {
-        const items = template.content.cloneNode(true);
-
-        items.querySelector('h3').textContent = 'Приглашение на свидание';
-        items.querySelector('p').textContent = `Вероятность : ${generateNumber(0, 100)} %`;
-
-        myPredictionContainer.append(items);
-
-        const items2 = template.content.cloneNode(true);
-
-        items2.querySelector('h3').textContent = 'Отдых от всех дел';
-        items2.querySelector('p').textContent = `Вероятность : ${generateNumber(0, 100)} %`;
-
-        myPredictionContainer.append(items2);
-
-        const items3 = template.content.cloneNode(true);
-
-        items3.querySelector('h3').textContent = 'Везде сопутствует удача';
-        items3.querySelector('p').textContent = `Вероятность : ${generateNumber(0, 100)} %`;
-
-        myPredictionContainer.append(items3);
-
-        const items4 = template.content.cloneNode(true);
-
-        items4.querySelector('h3').textContent = 'Получишь неожиданный подарок';
-        items4.querySelector('p').textContent = `Вероятность : ${generateNumber(0, 100)} %`;
-
-        myPredictionContainer.append(items4);
+    } else if (predictionNumber == 2) {
+        predictionText = "Приглашение на свидание";
+        probability = `Вероятность : ${generateNumber(0, 100)} %`;
+    } else if (predictionNumber == 3) {
+        predictionText = "Неожиданная поездка на море";
+        probability = `Вероятность : ${generateNumber(0, 100)} %`;
     } else {
-        const items5 = template.content.cloneNode(true);
-        items5.querySelector('h3').textContent = 'Тебя ждёт неудача';
-        items5.querySelector('p').textContent = `Вероятность : ${generateNumber(0, 100)} %`;
-
-        myPredictionContainer.append(items5);
+        predictionText = "Приятный сюрприз";
+        probability = `Вероятность : ${generateNumber(0, 100)} %`;
     }
+
+    namePredictions.textContent = predictionText;
+    probabilityPredictions.textContent = probability;
+
+    const prediction = createSample('Приезд любой рок группы в твой город', `Вероятность : ${generateNumber(0, 100)} %`);
+    myPredictionContainer.append(prediction);
+
+    const prediction2 = createSample('Неожиданные скидки в любимом магазине одежды', `Вероятность : ${generateNumber(0, 100)} %`);
+    myPredictionContainer.append(prediction2);
+
+    const prediction3 = createSample('WB доставил все заказы без задержек', `Вероятность : ${generateNumber(0, 100)} %`);
+    myPredictionContainer.append(prediction3);
+
+    const prediction4 = createSample('Сдала весь раздел по JS без ошибок', `Вероятность : ${generateNumber(0, 100)} %`);
+    myPredictionContainer.append(prediction4);
 })
