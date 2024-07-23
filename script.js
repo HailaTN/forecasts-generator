@@ -60,12 +60,4 @@ forecastBtn.addEventListener('click', function () {
     const prediction = createSample('Приезд любой рок группы в твой город', `Вероятность : ${generateNumber(0, 100)} %`);
     myPredictionContainer.append(prediction);
 
-    const prediction2 = createSample('Неожиданные скидки в любимом магазине одежды', `Вероятность : ${generateNumber(0, 100)} %`);
-    myPredictionContainer.append(prediction2);
-
-    const prediction3 = createSample('WB доставил все заказы без задержек', `Вероятность : ${generateNumber(0, 100)} %`);
-    myPredictionContainer.append(prediction3);
-
-    const prediction4 = createSample('Сдала весь раздел по JS без ошибок', `Вероятность : ${generateNumber(0, 100)} %`);
-    myPredictionContainer.append(prediction4);
 })
