@@ -57,7 +57,7 @@ forecastBtn.addEventListener('click', function () {
     namePredictions.textContent = predictionText;
     probabilityPredictions.textContent = probability;
 
-    const prediction = createSample('Приезд любимой рок группы в твой город', `Вероятность : ${generateNumber(0, 100)} %`);
+    const prediction = createSample(predictionText, probability);
     myPredictionContainer.append(prediction);
 
 })
