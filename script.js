@@ -54,7 +54,7 @@ forecastBtn.addEventListener('click', function () {
         probability = `Вероятность : ${generateNumber(0, 100)} %`;
     }
 
-    namePredictions.textContent = predictionText;
+    namePredictions.textContent = predictionText; 
     probabilityPredictions.textContent = probability;
 
     const prediction = createSample(predictionText, probability);
