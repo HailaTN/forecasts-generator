@@ -58,6 +58,5 @@ forecastBtn.addEventListener('click', function () {
     probabilityPredictions.textContent = probability;
 
     const prediction = createSample(predictionText, probability);
-    myPredictionContainer.append(prediction);
-
+    myPredictionContainer.prepend(prediction);
 })
